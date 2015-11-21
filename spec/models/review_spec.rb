@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Review, type: :model do
   let(:valid_attr) { {email: "vic@vic.com", date: Date.today, rating: 3,
                       comment: "This was a great movie!", movie_id: 1} }
+  let(:incorrect_email_attr) { {email: "vic@com", date: Date.today, rating: 3,
+                      comment: "This was a great movie!", movie_id: 1} }
   let(:no_movie_id_attr) { {email: "vic@vic.com", date: Date.today, rating: 3,
                       comment: "This was a great movie!"} }
   let(:incorrect_date_attr) { {email: "vic@vic.com", date: 'hi', rating: 3,
@@ -14,6 +16,12 @@ RSpec.describe Review, type: :model do
     context "when making a new Review with valid attributes" do
       it "returns true" do
         expect(Review.new(valid_attr).valid?).to eq(true)
+      end
+    end
+
+    context "when making a new Review with invalid email attribute" do
+      it "returns false" do
+        expect(Review.new(incorrect_email_attr).valid?).to eq(false)
       end
     end
 
