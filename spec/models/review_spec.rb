@@ -14,32 +14,32 @@ RSpec.describe Review, type: :model do
 
   describe "#valid?" do
     context "when making a new Review with valid attributes" do
-      it "returns true" do
-        expect(Review.new(valid_attr).valid?).to eq(true)
+      it "is valid" do
+        expect(Review.new(valid_attr)).to be_valid
       end
     end
 
     context "when making a new Review with invalid email attribute" do
-      it "returns false" do
-        expect(Review.new(incorrect_email_attr).valid?).to eq(false)
+      it "is NOT valid" do
+        expect(Review.new(incorrect_email_attr)).to_not be_valid
       end
     end
 
     context "when making a new Review with no movie_id attribute" do
-      it "returns false" do
-        expect(Review.new(no_movie_id_attr).valid?).to eq(false)
+      it "is NOT valid" do
+        expect(Review.new(no_movie_id_attr)).to_not be_valid
       end
     end
 
     context "when making a new Review with an incorrect date attribute" do
-      it "returns false" do
-        expect(Review.new(incorrect_date_attr).valid?).to eq(false)
+      it "is NOT valid" do
+        expect(Review.new(incorrect_date_attr)).to_not be_valid
       end
     end
 
     context "when making a new Review with no comment attribute" do
-      it "returns true" do
-        expect(Review.new(no_comment_attr).valid?).to eq(true)
+      it "is valid" do
+        expect(Review.new(no_comment_attr)).to be_valid
       end
     end
   end

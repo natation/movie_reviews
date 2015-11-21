@@ -9,20 +9,20 @@ RSpec.describe Movie, type: :model do
                             poster_path: "path/to/poster"} }
   describe "#valid?" do
     context "when making a new Movie with valid attributes" do
-      it "returns true" do
-        expect(Movie.new(valid_attr).valid?).to eq(true)
+      it "is valid" do
+        expect(Movie.new(valid_attr)).to be_valid
       end
     end
 
     context "when making a new Movie with an invalid date attribute" do
-      it "returns false" do
-        expect(Movie.new(invalid_date_attr).valid?).to eq(false)
+      it "is NOT valid" do
+        expect(Movie.new(invalid_date_attr)).to_not be_valid
       end
     end
 
     context "when making a new Movie with no overview attribute" do
-      it "returns false" do
-        expect(Movie.new(no_overview_attr).valid?).to eq(false)
+      it "is NOT valid" do
+        expect(Movie.new(no_overview_attr)).to_not be_valid
       end
     end
   end
