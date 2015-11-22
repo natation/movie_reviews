@@ -1,6 +1,6 @@
 class Api::MoviesController < ApplicationController
   def index
-    # Movie.destroy_all
+    Movie.destroy_all
     movie_resp = Unirest.get "https://api.themoviedb.org/3/movie/now_playing?api_key=#{ENV['movie_db']}"
     genre_resp = Unirest.get "https://api.themoviedb.org/3/genre/movie/list?api_key=#{ENV['movie_db']}"
     unless movie_resp.body.empty? || genre_resp.body.empty?
@@ -13,9 +13,10 @@ class Api::MoviesController < ApplicationController
       movie_info.each do |movie|
         genre_id = movie["genre_ids"].first
         genre = genres[genre_id]
+        poster_path = "http://image.tmdb.org/t/p/w300" + movie["poster_path"]
         movie_attr = {title: movie["title"], release_date: movie["release_date"],
                       genre: genre, overview: movie["overview"],
-                      poster_path: movie["poster_path"]}
+                      poster_path: poster_path}
         movie = Movie.new(movie_attr)
         movie.save
       end

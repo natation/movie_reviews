@@ -1,2 +1,39 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h1><%= @movie.title %></h1>
+  </div>
+  <div class="row">
+    <img src="<%= @movie.poster_path %>" alt="Poster">
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <strong>Release Date</strong>
+    </div>
+    <div class="col-xs-2">
+      <%= @movie.release_date %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <strong>Genre</strong>
+    </div>
+    <div class="col-xs-2">
+      <%= @movie.genre %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2">
+      <strong>Overview</strong>
+    </div>
+    <div class="col-xs-8">
+      <%= @movie.overview %>
+    </div>
+  </div>
+
+
+  <h3>Reviews</h3>
+  <%= render @movie.reviews %>
+  
+  <%= render review_form, @movie %>
+  <a class="btn btn-default btn-warning" href="/">Back</a>
+</div>
