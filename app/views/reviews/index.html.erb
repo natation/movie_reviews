@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <h1>All Reviews</h1>
+      <% if @reviews.empty? %>
+        <h4>No reviews</h4>
+      <% end %>
+      <%= render @reviews %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-offset-3 col-xs-6">
+      <a class="btn btn-default btn-warning" href="/">Back</a>
+    </div>
+  </div>
+</div>

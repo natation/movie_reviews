@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-      <table id="movies" class="tablesorter">
+      <table id="movies" class="table tablesorter">
       <thead>
         <tr>
           <th>
@@ -36,9 +36,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
-      <button class="get-movies btn btn-default btn-lg btn-primary">
-        Refresh Movie List and clear reviews</button>
+    <div class="col-xs-offset-3 col-xs-4">
+      <button class="get-movies btn btn-default btn-lg btn-warning">
+        Refresh movie List and clear reviews</button>
+    </div>
+    <div class="col-xs-3">
+      <a href="<%= reviews_url %>" class="btn btn-default btn-lg btn-primary">
+        See all reviews
+      </a>
     </div>
   </div>
 </div>

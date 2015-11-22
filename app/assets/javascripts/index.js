@@ -12,7 +12,7 @@
         $(this).attr('disabled', 'disabled');
         Util.getMovies();
       });
-      $("#movies").tablesorter(); 
+      $("#movies").tablesorter( {sortList: [[1, 1]]} ); 
     },
     checkMovies: function () {
       var $movies = $('.movie');

@@ -11,6 +11,10 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def index
+    @reviews = Review.all.order("created_at desc").includes(:movie)
+  end
+
   private
   def review_params
     params.require(:review).permit(:email, :date, :rating, :comment, :movie_id)
