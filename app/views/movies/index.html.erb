@@ -1,2 +1,18 @@
-<h1>Movies#index</h1>
-<p>Find me in app/views/movies/index.html.erb</p>
+<div class="container">
+  <% if @movies.empty? %>
+    <h1>Loading movies...</h1>
+  <% end %>
+  <h1>Movies - Now Playing</h1>
+  <div class="row">
+    <div class="col-xs-4">
+      <strong>Title</strong>
+    </div>
+    <div class="col-xs-2">
+      <strong>Release Date</strong>
+    </div>
+    <div class="col-xs-2">
+      <strong>Genre</strong>
+    </div>
+  </div>
+  <%= render @movies %>
+</div>
