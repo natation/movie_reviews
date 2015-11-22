@@ -7,8 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render "shared/flash", type: :info %>
+  <%= render "shared/flash", type: :errors %>
+  <%= yield %>
 
-<%= yield %>
-
+  <script type="text/javascript">
+    $info = $('#info');
+    $error = $('#errors');
+    if ($info.length) {
+      $info.find('button').addClass("alert alert-success");
+      $info.fadeTo(2500, 700).slideUp(700, function() {
+        $info.alert('close');
+      });
+    }
+    if ($error.length) {
+      $error.find('button').addClass("alert alert-danger");
+      $error.fadeTo(2500, 700).slideUp(700, function(){
+        $error.alert('close');
+      });
+    }
+  </script>
 </body>
 </html>

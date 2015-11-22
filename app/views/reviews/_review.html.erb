@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h4>Email: <%= review.email %></h4>
+    <h4>Posted: <%= time_ago_in_words(review.created_at) + ' ago'%></h4>
+    <h4>Rating: <%= review.rating %></h4>
+    <h4>Comment: <%= review.comment.length > 0 ? review.comment : "none" %></h4>
+  </div>
+</div>

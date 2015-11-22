@@ -1,0 +1,29 @@
+<% email_val =  review.nil? ? nil : review.email %>
+<% rating_val =  review.nil? ? nil : review.rating %>
+<% comment_val =  review.nil? ? nil : review.comment %>
+<% review_date = Date.today %>
+<% movie_id = movie.id %>
+<form class="review-form" action="<%= reviews_url %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="review[date]" value="<%= review_date %>">
+  <input type="hidden" name="review[movie_id]" value="<%= movie_id %>">
+  <div class="form-group">
+    <label for="review_email">Email:</label>
+    <input class="form-control" type="text"
+           name="review[email]" id="review_email" value="<%= email_val %>"/>
+  </div>
+  <div class="form-group">
+    <label>Rating (best is 5):</label>
+    <select class="form-control" name="review[rating]" value="<%= rating_val %>">
+      <option key={idx} value="1">1</option>
+      <option key={idx} value="2">2</option>
+      <option key={idx} value="3">3</option>
+      <option key={idx} value="4">4</option>
+      <option key={idx} value="5">5</option>
+    </select>
+    <label for="review_comment">Comment:</label>
+    <textarea name="review[comment]" class="form-control" id="review_comment"
+              rows="8" cols="40"><%= comment_val %></textarea>
+  </div>
+  <button class="btn btn-primary" type="submit">Add review</button>
+</form>
