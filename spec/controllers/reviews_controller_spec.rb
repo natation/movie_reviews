@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe ReviewsController, type: :controller do
-
-  describe "GET #create" do
-    it "returns http success" do
-      get :create
-      expect(response).to have_http_status(:success)
+  let(:valid_attr) { {email: "vic@vic.com", date: Date.today, rating: 3,
+                      comment: "This was a great movie!", movie_id: 1} }
+  describe "#create" do
+    it "adds valid review to database" do
+      Review.create(valid_attr)
+      expect(Review.all.length).to eq(1)
     end
   end
 

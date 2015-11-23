@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Api::MoviesController, type: :controller do
 
-  describe "GET #create" do
+  describe "GET #index" do
     it "returns http success" do
-      get :create
+      get :index
       expect(response).to have_http_status(:success)
     end
   end

@@ -30,6 +30,19 @@
     </div>
   </div>
   <div class="row">
+    <div class="col-xs-offset-3 col-xs-2">
+      <strong>Average Review Rating:</strong>
+    </div>
+    <div class="col-xs-5">
+      <% reviews = @movie.reviews %>
+      <% if reviews.length > 0 %>
+        <%= reviews.average(:rating) %>
+      <% else %>
+        No reviews yet
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
       <h1>Reviews</h1>
     </div>

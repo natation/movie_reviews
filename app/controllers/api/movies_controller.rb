@@ -1,7 +1,7 @@
 class Api::MoviesController < ApplicationController
   def index
     Movie.destroy_all
-    movie_resp = Unirest.get "https://api.themoviedb.org/3/movie/now_playing?api_key=#{ENV['movie_db']}"
+    movie_resp = Unirest.get "https://api.themoviedb.org/3/movie/top_rated?api_key=#{ENV['movie_db']}"
     genre_resp = Unirest.get "https://api.themoviedb.org/3/genre/movie/list?api_key=#{ENV['movie_db']}"
     unless movie_resp.body.empty? || genre_resp.body.empty?
       movie_info = movie_resp.body["results"]

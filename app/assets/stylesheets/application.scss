@@ -1,6 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body {
+  background: #f4f4f4;
+  > .container {
+    margin-bottom: 30px;
+  }
+}
+
 #info, #errors {
   position: absolute;
   left: 50%;
