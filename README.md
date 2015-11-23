@@ -1,6 +1,6 @@
 # Theatre Cinema Intelligence
 
-[See It Live](tci-movies.herokuapp.com)
+[See It Live](http://tci-movies.herokuapp.com)
 
 Welcome to my Rails 4 movie review web application! It allows users to see the
 top rated movies and their associated reviews. Users can sort by movie title,
