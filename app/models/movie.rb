@@ -2,7 +2,7 @@ class Movie < ActiveRecord::Base
   validates :title, :release_date, :genre, :overview, :poster_path, presence: true
   validate :is_valid_date?
 
-  has_many :reviews, dependent: :destroy
+  has_many :reviews, -> { order(created_at: :desc) }, dependent: :destroy
 
   private
   def is_valid_date?

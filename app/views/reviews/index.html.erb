@@ -5,12 +5,12 @@
       <% if @reviews.empty? %>
         <h4>No reviews</h4>
       <% end %>
-      <%= render @reviews %>
+      <%= render @reviews, movie_show: false %>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
-      <a class="btn btn-default btn-warning" href="/">Back</a>
+      <a class="btn btn-default btn-warning" href="/">Back to all movies</a>
     </div>
   </div>
 </div>

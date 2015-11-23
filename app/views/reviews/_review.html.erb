@@ -1,6 +1,8 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <h3>Movie: <%= link_to review.movie.title, movie_url(review.movie_id) %></h3>
+    <% unless movie_show %>
+      <h3>Movie: <%= link_to review.movie.title, movie_url(review.movie_id) %></h3>
+    <% end %>
     <h4>Email: <%= review.email %></h4>
     <h4>Posted: <%= time_ago_in_words(review.created_at) + ' ago'%></h4>
     <h4>Rating: <%= review.rating %></h4>

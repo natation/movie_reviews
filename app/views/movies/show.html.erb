@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-offset-3 col-xs-6">
+    <div class="col-xs-12">
       <h1><%= @movie.title %></h1>
       <img src="<%= @movie.poster_path %>" alt="Poster">
     </div>
@@ -34,13 +34,13 @@
       <h1>Reviews</h1>
     </div>
   </div>
-  <% reviews = @movie.reviews.order("created_at desc") %>
+  <% reviews = @movie.reviews %>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
       <% if reviews.empty? %>
         <h4>No reviews</h4>
       <% end %>
-      <%= render reviews %>
+      <%= render reviews, movie_show: true %>
     </div>
   </div>
   <div class="row">
@@ -54,7 +54,7 @@
   </div>
   <div class="row">
     <div class="col-xs-offset-3 col-xs-3">
-      <a class="btn btn-default btn-warning" href="/">Back</a>
+      <a class="btn btn-default btn-warning" href="/">Back to all movies</a>
     </div>
     <div class="col-xs-3">
       <a href="<%= reviews_url %>" class="btn btn-default btn-primary">
